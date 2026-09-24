@@ -1,0 +1,39 @@
+# config.yaml — N-HiTS training configuration
+
+data:
+  raw_csv_path: "data/daily.csv"
+  processed_output_dir: "data/processed_daily"
+  train_split: 0.7
+  validation_split: 0.1
+  h_values: [96, 192, 336, 720]
+  multiplier: 5          # L = multiplier * H (input window length)
+
+model:
+  input_size: 480
+  forecast_size: 96
+  stack_types: ["identity", "identity", "identity"]
+  n_blocks: [1, 1, 1]
+  n_layers: [2, 2, 2]
+  n_theta_hidden: [[512, 512], [512, 512], [512, 512]]
+  n_pool_kernel_size: [16, 8, 1]
+  pooling_mode: "max"
+  dropout_prob_theta: 0.1
+  batch_normalization: true
+  shared_weights: false
+
+training:
+  learning_rate: 0.001
+  weight_decay: 0.00001
+  batch_size: 256
+  max_epochs: 30
+  loss_name: "MSE"
+  random_seed: 42
+  early_stopping_patience: 5
+
+paths:
+  checkpoint_dir: "./checkpoints"
+  checkpoint_filename: "nhits-{epoch:02d}-{val_loss:.4f}"
+
+hardware:
+  accelerator: "gpu"   # "gpu" or "cpu"
+  devices: 1
