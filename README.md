@@ -71,15 +71,18 @@ pip install -r requirements.txt
 
 ## Project Structure
 
+```text
 N-HITS/
-├── data/ # Preprocessing, dataloaders, merging utilities
-├── models/nhits/ # Core N-HiTS architecture (LightningModule)
-├── tests/ # Unit tests
-├── utils/ # Config loader and shared utilities
-├── config.yaml # Centralized hyperparameters and paths
-├── main.py
-├── requirements.txt
-└── README.md
+├── data/                  # Preprocessing, dataloaders, and merging utilities
+├── models/
+│   └── nhits/             # Core N-HiTS architecture (LightningModule)
+├── tests/                 # Unit tests (pytest)
+├── utils/                 # Config loader and shared utilities
+├── .gitignore             # Git ignore patterns
+├── config.yaml            # Centralized hyperparameters and path configurations
+├── main.py                # Entry point for training and inference
+├── README.md              # Project documentation
+└── requirements.txt       # Python dependencies
 
 ## Usage
 
