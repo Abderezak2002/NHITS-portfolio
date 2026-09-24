@@ -83,6 +83,7 @@ N-HITS/
 ├── main.py                # Entry point for training and inference
 ├── README.md              # Project documentation
 └── requirements.txt       # Python dependencies
+```
 
 ## Usage
 
